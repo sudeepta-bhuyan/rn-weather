@@ -1,22 +1,17 @@
 import React from 'react';
-import { StyleSheet, Text, View, Platform, TextInput } from 'react-native';
-//import { Platform } from '@unimodules/core';
+import { StyleSheet, Text, KeyboardAvoidingView, Platform} from 'react-native';
+import SearchInput from './components/SearchInput';
 
 export default function App() {
   return (
 
-    <View style={styles.container}>
+    <KeyboardAvoidingView style={styles.container} behavior="padding">
       <Text style={[styles.largeText, styles.textStyle]}>San Francisco</Text>
       <Text style={[styles.smallText, styles.textStyle]}>Light Cloud</Text>
       <Text style={[styles.largeText, styles.textStyle]}>{"24\u00B0"}</Text>
 
-      <TextInput
-        autoCorrect={false}
-        placeholder="Search any city"
-        placeholderTextColor="white"
-        style={styles.textInput}
-        clearButtonMode="always"/>
-    </View>
+      <SearchInput placeholder="Search any city"/>
+    </KeyboardAvoidingView>
   );
 }
 
@@ -36,15 +31,5 @@ const styles = StyleSheet.create({
   },
   smallText: {
     fontSize: 18,
-  },
-  textInput: {
-    backgroundColor:'#666',
-    color:'white',
-    height: 40,
-    width: 300,
-    marginTop: 20,
-    marginHorizontal:20,
-    paddingHorizontal: 10,
-    alignSelf: 'center'
   },
 });
